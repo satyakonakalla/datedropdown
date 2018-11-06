@@ -1,0 +1,37 @@
+<p>
+  date-dropdown works!
+</p>
+<div class="col-md-12 date-dropdown">
+  <div class="form-group row">
+    <div class="col-md-5">
+      <label class="mt-2">
+        Date Range: {{dateRange}}
+      </label>
+      <ngx-select tabindex="0" [allowClear]="true" [items]="items" [(ngModel)]="date" [disabled]="disabled" (select)="selected($event)"
+        (removed)="removed($event)" (typed)="typed($event)" placeholder="Year to Date">
+      </ngx-select>
+    </div>
+  </div>
+  <div *ngIf="useSelectDateRageOption">
+    <div class="form-group row">
+      <div class="col-md-5">
+        <div class="input-group">
+          <input class="form-control" placeholder="Enter Start Date" name="dp" [(ngModel)]="model" ngbDatepicker #d1="ngbDatepicker">
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary calendar" (click)="d1.toggle()" type="button"></button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="col-md-5">
+        <div class="input-group">
+          <input class="form-control" placeholder="Enter End Date" name="dp" [(ngModel)]="model" ngbDatepicker #d2="ngbDatepicker">
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary calendar" (click)="d2.toggle()" type="button"></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
