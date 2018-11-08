@@ -1,5 +1,5 @@
 <p>
-  date-dropdown works!
+  <b>Search using dates:</b>
 </p>
 <div class="col-md-12 date-dropdown">
   <div class="form-group row">
@@ -16,7 +16,8 @@
     <div class="form-group row">
       <div class="col-md-5">
         <div class="input-group">
-          <input class="form-control" placeholder="Enter Start Date" name="dp" [(ngModel)]="model" ngbDatepicker #d1="ngbDatepicker">
+          <input class="form-control" name="dp1" [ngModel]="fromDate" (ngModelChange)="onFromDateChange($event)" ngbDatepicker #d1="ngbDatepicker" 
+          [minDate]="getFromMinDate()" [maxDate]="getFromMaxDate()" placeholder="Enter From Date">
           <div class="input-group-append">
             <button class="btn btn-outline-secondary calendar" (click)="d1.toggle()" type="button"></button>
           </div>
@@ -26,7 +27,8 @@
     <div class="form-group row">
       <div class="col-md-5">
         <div class="input-group">
-          <input class="form-control" placeholder="Enter End Date" name="dp" [(ngModel)]="model" ngbDatepicker #d2="ngbDatepicker">
+          <input class="form-control"  name="dp2" [ngModel]="toDate" (ngModelChange)="onToDateChange($event)" ngbDatepicker #d2="ngbDatepicker"
+          [minDate]="getToMinDate()" [maxDate]="getToMaxDate()" placeholder="Enter To Date">
           <div class="input-group-append">
             <button class="btn btn-outline-secondary calendar" (click)="d2.toggle()" type="button"></button>
           </div>
